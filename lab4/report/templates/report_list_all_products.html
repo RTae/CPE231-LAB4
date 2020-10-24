@@ -1,0 +1,25 @@
+<html>
+<body>
+    <div>
+    {% extends 'index.html' %}
+    {% block content %}
+        <table class='table' style="width: 900px;">
+            <tr>
+                <th>#</th>
+                {% for name in column_name %}
+                <th>{{ name }} </th>
+                {% endfor %}
+            </tr>
+        {% for lineitem in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ lineitem.code }}</td>
+                <td>{{ lineitem.name }}</td>
+                <td>{{ lineitem.units }}</td>
+            <tr>
+        {% endfor %}
+        
+        {% endblock %}
+    </div>
+</body>
+</html>

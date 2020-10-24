@@ -1,0 +1,27 @@
+<html>
+<body>
+    <div>
+    {% extends 'index.html' %}
+    {% block content %}
+        <table class='table' style="width: 500px;">
+            <tr>
+                <th>#</th>
+                {% for name in column_name %}
+                <th>{{ name }} </th>
+                {% endfor %}
+            </tr>
+        {% for lineitem in data %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ lineitem.date }}</td>
+                <td>{{ lineitem.total_sale }}</td>
+            <tr>
+        {% endfor %}
+        </table>
+        {% endblock %}
+    </div>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+</body>
+</html>
